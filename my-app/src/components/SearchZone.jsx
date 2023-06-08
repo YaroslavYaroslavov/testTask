@@ -2,13 +2,15 @@ import { useEffect, useState, useRef } from "react"
 import SearchInput from "./SearchInput"
 import Select from "./Select" 
 
-const API_KEY = 'AIzaSyB_GP2txS8lk2NxDU74yIpQfnX1jp1HvYA'
+// const API_KEY = 'AIzaSyB_GP2txS8lk2NxDU74yIpQfnX1jp1HvYA'
+const API_KEY = 'AIzaSyA3gqU7X08zQMrfpfYU9wNFWG9Knbkar1c'
 
-const SearchZone = () =>{
+const SearchZone = (props) =>{
+    
         const [activeCategories, setActiveCategories] = useState('all')
         const [activeSort, setActiveSort] = useState('relevance')
         const [inputValue, setInputValue] = useState('')
-    
+        const [oldOffset, setOldOffset] = useState(0)
     const handleInputChange = (text) => {
          setInputValue(text)
     }     
@@ -17,32 +19,40 @@ const SearchZone = () =>{
     }
     const handleActiveSortChange = (active) => {
         setActiveSort(active)
-    }
-    const useDidMountEffect = (func, deps) => {
-        const didMount = useRef(false);
+    } 
+    async function logData ()  {
+        let categories = ''
+        if(activeCategories !== 'all'){
+            categories = `+object:${activeCategories}`
+        }else{
+            categories = ''
+        }
+        const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${inputValue}${categories}&startIndex=${props.offset}&maxResults=30&orderBy=${activeSort}&key=`+API_KEY)
+        const jsonData = await response.json();
+        // console.log(jsonData)
+        
+        props.onResponse(jsonData)
     
-        useEffect(() => {
-            if (didMount.current) func();
-            else didMount.current = true;
-        }, deps);
     }
-        useDidMountEffect(() => {
-            if(inputValue){
-                async function logData ()  {
-                    const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${inputValue}&key=`+API_KEY)
-
-                    // console.log(response)
-                    const jsonData = await response.json();
-                    console.log(jsonData)
-                }
+    
+    useEffect(()=>{
+        if(inputValue){
+           if(props.offset === oldOffset && oldOffset !== 0 ){
+            props.onInputChange()
+            setOldOffset(0)
+           }
+           if(props.offset === oldOffset && oldOffset === 0){
+               logData()
+               setOldOffset(props.offset)
+            }
+            if(props.offset !== oldOffset){
                 logData()
-                console.log({
-                    sort: activeSort,
-                    categ: activeCategories,
-                    name: inputValue
-                })}
+                setOldOffset(props.offset)
+            }
+        }
+        
+    },[inputValue, activeSort, activeCategories, props.offset])      
 
-    })
     return(
         <div className="searchZone">
             <h1>Search for books</h1>
