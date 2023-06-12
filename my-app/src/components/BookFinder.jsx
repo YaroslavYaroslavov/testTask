@@ -1,7 +1,7 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter} from 'react-router-dom';
 import SearchZone from './SearchZone';
 import ResultZone from './ResultZone';
-import { useEffect, useState } from 'react';
+import {useState } from 'react';
 
 function BookFinder() {
   const [data, setData] = useState({});
@@ -30,8 +30,8 @@ function BookFinder() {
           offset={offset}
           onInputChange={handleOptionsChange}
         />
-        <ResultZone data={data} newSearch={newSearch} />
-        <button onClick={handleButtonClick} className="loadmore">Больше</button>
+        <ResultZone data={data} onClick={handleButtonClick} newSearch={newSearch} />
+       
       </BrowserRouter>
     </div>
   );

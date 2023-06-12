@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import SearchInput from "./SearchInput"
 import Select from "./Select" 
+import { Link } from "react-router-dom"
 
 // const API_KEY = 'AIzaSyB_GP2txS8lk2NxDU74yIpQfnX1jp1HvYA'
 const API_KEY = 'AIzaSyA3gqU7X08zQMrfpfYU9wNFWG9Knbkar1c'
@@ -32,7 +33,7 @@ const SearchZone = (props) =>{
         // console.log(jsonData)
         
         props.onResponse(jsonData)
-        console.log(`https://www.googleapis.com/books/v1/volumes?q=${inputValue}${categories}&startIndex=${props.offset}&maxResults=30&orderBy=${activeSort}&key=`+API_KEY)
+        // console.log(`https://www.googleapis.com/books/v1/volumes?q=${inputValue}${categories}&startIndex=${props.offset}&maxResults=30&orderBy=${activeSort}&key=`+API_KEY)
     }
     
     useEffect(()=>{
@@ -55,6 +56,7 @@ const SearchZone = (props) =>{
     },[inputValue, activeSort, activeCategories, props.offset])      
 
     return(
+            <Link to="/" className="rectangle">
         <div className="searchZone">
             <h1>Search for books</h1>
             <SearchInput onChange={handleInputChange}/>
@@ -64,6 +66,7 @@ const SearchZone = (props) =>{
                <Select onChange={handleActiveSortChange} name='Sorting by' list = {['relevance','newest']}/>
             </div>
         </div>
+            </Link>
     )
 }
 export default SearchZone
