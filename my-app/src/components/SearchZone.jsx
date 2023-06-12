@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState } from "react"
 import SearchInput from "./SearchInput"
 import Select from "./Select" 
 
@@ -32,10 +32,11 @@ const SearchZone = (props) =>{
         // console.log(jsonData)
         
         props.onResponse(jsonData)
-    
+        console.log(`https://www.googleapis.com/books/v1/volumes?q=${inputValue}${categories}&startIndex=${props.offset}&maxResults=30&orderBy=${activeSort}&key=`+API_KEY)
     }
     
     useEffect(()=>{
+        
         if(inputValue){
            if(props.offset === oldOffset && oldOffset !== 0 ){
             props.onInputChange()
@@ -50,7 +51,7 @@ const SearchZone = (props) =>{
                 setOldOffset(props.offset)
             }
         }
-        
+        // eslint-disable-next-line
     },[inputValue, activeSort, activeCategories, props.offset])      
 
     return(
