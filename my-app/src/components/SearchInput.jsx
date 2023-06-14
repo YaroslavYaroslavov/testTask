@@ -1,13 +1,34 @@
+import { useState } from "react";
+
 const SearchInput = (props) => {
-   const  handleInputChange = (event) =>{
-    if(event.key === 'Enter')
-            props.onChange(event.target.value)
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleEnterKey = (event) => {
+    if (event.key === "Enter") {
+      props.onChange(inputValue);
     }
-    return(
+  };
+
+  const handleButtonClick = () => {
+    props.onClick(inputValue);
+  };
+
+  return (
     <div className="searchInput">
-        <input onKeyDown={handleInputChange} type="text" placeholder="Name of book..."/>
-        <div className="searchIco"></div>
+      <input
+        onChange={handleInputChange}
+        onKeyDown={handleEnterKey}
+        type="text"
+        placeholder="Name of book..."
+        value={inputValue}
+      />
+      <button onClick={handleButtonClick} className="searchIco"></button>
     </div>
-    ) 
-}
-export default SearchInput
+  );
+};
+
+export default SearchInput;
