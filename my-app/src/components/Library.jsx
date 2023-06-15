@@ -4,7 +4,7 @@ const Library = ({ books, onClick, totalItems }) => {
   return (
     <div className="library">
       {totalItems ? (<div className="countResults">Found {totalItems} results</div>) : ('')}
-      <div className="books">
+     {totalItems ? ( <div className="books">
         {books.map((el) => (
         <BookCard
           key={`${Date.now()}${Math.floor(Math.random()*99999999) + 10000}`}  
@@ -15,10 +15,10 @@ const Library = ({ books, onClick, totalItems }) => {
           author={el?.volumeInfo?.authors}
         />
       ))}
-      </div>
+      </div>) : ('')}
       
-      
-       <button onClick={onClick} className="loadmore">Больше</button>
+      {totalItems ? (<button onClick={onClick} className="loadmore">Больше</button>) : ('')}
+   
     </div>
     
   )

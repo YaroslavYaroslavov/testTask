@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 const BookFullCard = () => {
   
   const [book, setBook] = useState({})
 
   const catalog = window.location.pathname.split('/').at(-1)
-
+  const desc = book.volumeInfo?.description !== undefined ? book.volumeInfo?.description.replace(/<(.|\n)*?>/g, '') : ''
   async function getBook () {
     const response = await fetch(`https://www.googleapis.com/books/v1/volumes/${catalog}`)
     const jsonData = await response.json();
@@ -25,7 +24,7 @@ const BookFullCard = () => {
           <div className="bookCategories">{book?.volumeInfo?.categories?.join(', ')}</div>
           <div className="bookTitle">{book?.volumeInfo?.title}</div>
           <div className="bookAuthors">{book?.volumeInfo?.authors?.join(', ')}</div>
-          <div className="bookDescrption">{book.volumeInfo?.description.replace(/<(.|\n)*?>/g, '')}</div>
+          <div className="bookDescrption">{desc}</div>
         </div>
     {/* <Link to="/testTask">
       <button>Go Back</button>

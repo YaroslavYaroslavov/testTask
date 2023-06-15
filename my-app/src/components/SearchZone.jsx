@@ -60,7 +60,6 @@ const SearchZone = (props) =>{
         <div className="searchZone">
             <h1>Search for books</h1>
             <SearchInput onChange={handleInputChange} onClick={handleInputChange}/>
-            <span>{inputValue}</span>
             <div className="params"> 
                <Select onChange={handleActiveCategoriesChange} name='Categories' list={['all', 'art', 'biography', 'computers', 'history', 'medical', 'poetry']}/>
                <Select onChange={handleActiveSortChange} name='Sorting by' list = {['relevance','newest']}/>
