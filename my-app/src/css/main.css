@@ -5,6 +5,7 @@ body {
 }
 
 .App {
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,9 +15,9 @@ body {
 .searchZone {
     width: 100vw;
     margin: auto;
-    background-color: red;
+    background-color: rgb(51, 51, 51);
     text-align: center;
-    font-family: "Arial Black", Gadget, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, serif;
     color: #fff;
     letter-spacing: 1px;
     padding-bottom: 20px;
@@ -29,7 +30,7 @@ body {
 .searchZone input {
     width: 75%;
     height: 50px;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, serif;
     font-size: 20px;
     border: none;
 }
@@ -49,18 +50,26 @@ body {
 .resultZone {
     text-align: center;
     margin: auto;
-    font-family: "Arial Black", Gadget, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, serif;
     font-size: 25px;
+    /* padding-top: 20px; */
+}
+
+.countResults {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .card {
     width: 200px;
     height: 280px;
-    background-color: black;
+    background-color: #f4f3f1;
+    padding-top: 20px;
     margin: 10px;
+    padding-bottom: 20px;
 }
 
-.library {
+.books {
     margin: auto;
     display: flex;
     width: 70vw;
@@ -84,21 +93,47 @@ body {
     margin-top: 20px;
 }
 
-.category {
-    font-size: 8px;
-}
-
-.author {
-    font-size: 8px;
-}
-
-.bookName {
-    font-size: 8px;
-}
-
 .noLink {
     color: inherit;
     text-decoration: none;
+    /* display: inline-block; */
+}
+
+.category {
+    height: 30px;
+    font-size: 13px;
+    margin: 0;
+    text-decoration: underline;
+    /* text-decoration-color: transparent; */
+    color: #858585;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, serif;
+}
+
+.author {
+    height: 30px;
+    font-size: 13px;
+    margin: 0;
+    text-decoration: underline;
+    color: #858585;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, serif;
+}
+
+.bookName {
+    letter-spacing: -1px;
+    height: 44px;
+    font-weight: bold;
+    margin: 0;
+    font-size: 15px;
+}
+
+.textInfo {
+    width: 128px;
+    height: 90px;
+    text-align: left;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .searchIco {
@@ -122,9 +157,110 @@ body {
     justify-content: center;
 }
 
+.noImage {
+    background-color: rgb(158, 158, 158);
+    width: 128px;
+    height: 211px;
+    /* background-color: ; */
+    background-image: url(../material/icons8-нет-изображения-50.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.cardImage {
+    background-color: rgb(41, 41, 41);
+    margin: auto;
+    width: 128px;
+    height: 192px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2); */
+    /* -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2); */
+    box-shadow: inset;
+    box-shadow: 8px 8px 7px 0px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+.bookDetail-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    margin: auto;
+    gap: 55px;
+    position: relative;
+}
+
+.image-block {
+    width: 50%;
+    height: 39vw;
+    /* height: 200px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f2f3;
+    /* border: 1px solid grey; */
+}
+
+.image-block img {
+    transform: scale(3, 3);
+    box-shadow: inset;
+    box-shadow: 8px 8px 7px 0px rgba(0, 0, 0, 0.2);
+    /* height: 20%; */
+}
+
+.detail-block {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 50%;
+    justify-content: space-between;
+}
+
+.bookDescrption {
+    width: 90%;
+    text-align: start;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: -1px;
+    border: 1px solid grey;
+    margin-top: 20px;
+    padding: 20px;
+    padding-right: 1vw;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, serif;
+}
+
+.bookCategories {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, serif;
+    font-size: 20px;
+    font-weight: lighter;
+    text-align: start;
+    margin-bottom: 50px;
+}
+
+.bookTitle {
+    text-align: start;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, serif;
+    font-weight: bolder;
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.bookAuthors {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, serif;
+    text-align: start;
+    text-decoration: underline;
+    font-weight: lighter;
+    color: #474747;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
 @media screen and (max-width: 400px) {
     .selectLabel {
         display: none
     }
-    ;
 }

@@ -9,7 +9,7 @@ const ResultZone = (props) => {
   useEffect(() => {
     if (props.data.items === undefined) return
     if (props.newSearch) {
-      setBooks([...props.data.items])
+      setBooks([...props.data.items]) 
     } else {
       setBooks([...books, ...props.data.items])
     }
@@ -18,10 +18,10 @@ const ResultZone = (props) => {
 
   return (
     <div className="resultZone">
-      {props.data.totalItems ? (<div className="countResults">Found {props.data.totalItems} results</div>) : ('')}
+      
       <Routes>
-        <Route path="/" element={<Library books={books} onClick={props.onClick} />} />
-        <Route path="/bookfullcard/:id" element={<BookFullCard/>} />
+        <Route path="/testTask" element={<Library  totalItems={props.data.totalItems} books={books} onClick={props.onClick} />} />
+        <Route path="/testTask/bookfullcard/:id" element={<BookFullCard/>} />
       </Routes>
      
     </div>

@@ -4,14 +4,31 @@ const BookCard = (props) => {
   const path = `/${props.href}`
   const author = props.author !== undefined ? props.author[0] : ''
   const category = props.category !== undefined ? props.category[0] : ''
-
+  const img = props.img ? <img src={props.img} alt="" /> : <div className="noImage"></div>
+  let title = ''
+  
+  // console.log(props.title)
+  if(props.title){
+    if (props.title.length > 20) {
+      title = props.title
+      title = title.substring(0, 20);
+      title+='...'
+    }
+    else{
+      title = props.title
+    }
+  } 
   return (
-    <Link to={path}>
+    <Link to={path} className="noLink">
       <div className="card">
-        <img src={props.img || ""} alt="" />
-        <p className="category">{category}</p>
-        <p className="bookName">{props.title || ""}</p>
+        <div className="cardImage"> 
+        {img}
+        </div>
+       <div className="textInfo">
+       <p className="category ">{category}</p>
+        <p className="bookName ">{title}</p>
         <p className="author">{author}</p>
+       </div>
       </div>
     </Link>
   )

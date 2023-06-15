@@ -11,7 +11,7 @@ const Select = (props) =>{
             <div className="selectLabel">{props.name}</div>
             <select onChange={handleActiveChange}  name="" id="" value={active}>
                 {props.list.map((el) => {
-                   return(<option key={`${Date.now()}` + `${Math.floor(Math.random()*90000) + 10000}`} value={el}>{el}</option>)
+                   return(<option key={`${Date.now()}${Math.floor(Math.random()*90000) + 10000}`} value={el}>{el}</option>)
                 })}
             </select>
         </div>

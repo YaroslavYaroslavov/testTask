@@ -22,15 +22,14 @@ const BookFullCard = () => {
             <img src={book?.volumeInfo?.imageLinks?.thumbnail || ''} alt="" />
         </div>
         <div className="detail-block">
-          <div className="bookCategories">{book?.volumeInfo?.categories.join(', ')}</div>
+          <div className="bookCategories">{book?.volumeInfo?.categories?.join(', ')}</div>
           <div className="bookTitle">{book?.volumeInfo?.title}</div>
-          <div className="bookAuthors">{book?.volumeInfo?.authors.join(', ')}</div>
-          <div className="bookDescrption">{book.volumeInfo?.description}</div>
+          <div className="bookAuthors">{book?.volumeInfo?.authors?.join(', ')}</div>
+          <div className="bookDescrption">{book.volumeInfo?.description.replace(/<(.|\n)*?>/g, '')}</div>
         </div>
-     
-    <Link to="/">
+    {/* <Link to="/testTask">
       <button>Go Back</button>
-    </Link>
+    </Link> */}
       </div>
   );
 };

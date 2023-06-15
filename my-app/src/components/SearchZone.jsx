@@ -56,7 +56,7 @@ const SearchZone = (props) =>{
     },[inputValue, activeSort, activeCategories, props.offset])      
 
     return(
-            <Link to="/" className="noLink">
+            <Link to="/testTask" className="noLink">
         <div className="searchZone">
             <h1>Search for books</h1>
             <SearchInput onChange={handleInputChange} onClick={handleInputChange}/>
