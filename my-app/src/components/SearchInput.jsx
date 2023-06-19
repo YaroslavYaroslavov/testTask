@@ -4,7 +4,7 @@ const SearchInput = (props) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleInputChange = (event) => {
-    setInputValue(event.target.value);
+    setInputValue(event.target.value.trim());
   };
 
   const handleEnterKey = (event) => {

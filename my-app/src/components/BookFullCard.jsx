@@ -1,24 +1,15 @@
-import { useEffect, useState } from 'react';
-const BookFullCard = () => {
-  
-  const [book, setBook] = useState({})
-
-  const catalog = window.location.pathname.split('/').at(-1)
+import { Link } from "react-router-dom"
+import { useContext } from 'react';
+import { Context } from './ResultZone';
+const BookFullCard = () => {  
+  const books = useContext(Context)
+  const bookId = window.location.pathname.split('/').at(-1)
+  const book = books.find(book => book.id === bookId)
   const desc = book.volumeInfo?.description !== undefined ? book.volumeInfo?.description.replace(/<(.|\n)*?>/g, '') : ''
-  async function getBook () {
-    const response = await fetch(`https://www.googleapis.com/books/v1/volumes/${catalog}`)
-    const jsonData = await response.json();
-    setBook(jsonData)
-  }
-    useEffect(() =>{
-      getBook()
-       // eslint-disable-next-line
-    },[])
-
   return (
     <div className="bookDetail-wrapper">
         <div className="image-block">
-            <img src={book?.volumeInfo?.imageLinks?.thumbnail || ''} alt="" />
+          <img src={book?.volumeInfo?.imageLinks?.thumbnail || ''} alt="" />
         </div>
         <div className="detail-block">
           <div className="bookCategories">{book?.volumeInfo?.categories?.join(', ')}</div>
@@ -26,10 +17,10 @@ const BookFullCard = () => {
           <div className="bookAuthors">{book?.volumeInfo?.authors?.join(', ')}</div>
           <div className="bookDescrption">{desc}</div>
         </div>
-    {/* <Link to="/testTask">
+    <Link to="/testTask">
       <button>Go Back</button>
-    </Link> */}
-      </div>
+    </Link>
+    </div>
   );
 };
 

@@ -1,13 +1,14 @@
 
 import BookCard from "./BookCard"
-const Library = ({ books, onClick, totalItems }) => {
+const Library = ({ books, onClick, data }) => {
   return (
+   
     <div className="library">
-      {totalItems ? (<div className="countResults">Found {totalItems} results</div>) : ('')}
-     {totalItems ? ( <div className="books">
+      {data.totalItems ? (<div className="countResults">Found {data.totalItems} results</div>) : ('')}
+     {data.totalItems ? ( <div className="books">
         {books.map((el) => (
         <BookCard
-          key={`${Date.now()}${Math.floor(Math.random()*99999999) + 10000}`}  
+          key={el.id}  
           href={`testTask/bookfullcard/${el.id}`}
           img={el?.volumeInfo?.imageLinks?.thumbnail}
           category={el?.volumeInfo?.categories}
@@ -16,11 +17,9 @@ const Library = ({ books, onClick, totalItems }) => {
         />
       ))}
       </div>) : ('')}
-      
-      {totalItems ? (<button onClick={onClick} className="loadmore">Больше</button>) : ('')}
+      {data.items ? (<button onClick={onClick} className="loadmore">Больше</button>) : ('')}
    
     </div>
-    
   )
 }
 export default Library

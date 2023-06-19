@@ -132,10 +132,15 @@ body {
 
 .bookName {
     letter-spacing: -1px;
-    height: 44px;
+    /* height: 10ch; */
     font-weight: bold;
     margin: 0;
     font-size: 15px;
+    width: 128px;
+    /* max-width: 20ch; */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .textInfo {
@@ -261,6 +266,9 @@ body {
     font-weight: bolder;
     font-size: 27px;
     margin-bottom: 20px;
+    /* height: 20px; */
+    /* width: 20em; */
+    /* text-overflow: ellipsis; */
 }
 
 .bookAuthors {
@@ -304,4 +312,10 @@ body {
         box-shadow: 8px 8px 7px 0px rgba(0, 0, 0, 0.2);
         /* height: 20%; */
     }
+}
+
+.load {
+    width: 1000px;
+    height: 1000px;
+    background-color: red;
 }

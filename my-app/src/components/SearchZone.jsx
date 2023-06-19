@@ -2,12 +2,9 @@ import { useEffect, useState } from "react"
 import SearchInput from "./SearchInput"
 import Select from "./Select" 
 import { Link } from "react-router-dom"
-
-// const API_KEY = 'AIzaSyB_GP2txS8lk2NxDU74yIpQfnX1jp1HvYA'
-const API_KEY = 'AIzaSyA3gqU7X08zQMrfpfYU9wNFWG9Knbkar1c'
-
+const API_KEY = process.env.REACT_APP_API_KEY
+console.log(API_KEY)
 const SearchZone = (props) =>{
-    
         const [activeCategories, setActiveCategories] = useState('all')
         const [activeSort, setActiveSort] = useState('relevance')
         const [inputValue, setInputValue] = useState('')
@@ -28,7 +25,7 @@ const SearchZone = (props) =>{
         }else{
             categories = ''
         }
-        const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${inputValue}${categories}&startIndex=${props.offset}&maxResults=30&orderBy=${activeSort}&key=`+API_KEY)
+        const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=intitle:${inputValue}${categories}&startIndex=${props.offset}&maxResults=30&orderBy=${activeSort}&key=`+API_KEY)
         const jsonData = await response.json();
         // console.log(jsonData)
         

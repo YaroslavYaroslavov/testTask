@@ -5,19 +5,7 @@ const BookCard = (props) => {
   const author = props.author !== undefined ? props.author[0] : ''
   const category = props.category !== undefined ? props.category[0] : ''
   const img = props.img ? <img src={props.img} alt="" /> : <div className="noImage"></div>
-  let title = ''
-  
-  // console.log(props.title)
-  if(props.title){
-    if (props.title.length > 20) {
-      title = props.title
-      title = title.substring(0, 20);
-      title+='...'
-    }
-    else{
-      title = props.title
-    }
-  } 
+  const title = props.title
   return (
     <Link to={path} className="noLink">
       <div className="card">

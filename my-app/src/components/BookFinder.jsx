@@ -8,12 +8,13 @@ function BookFinder() {
   const [offset, setOffset] = useState(0);
   const [newSearch, setNewSearch] = useState(true);
   
+
   const handleDataChange = (data) => {
     setData(data);
   };
   const handleButtonClick = () => {
       setNewSearch(false);
-      setOffset(offset + 30);
+      setOffset(prev => prev + 30);
   };
 
   const handleOptionsChange = () => {
