@@ -1,11 +1,12 @@
-
-import BookFinder from './components/BookFinder';
+import BookFinder from "./components/BookFinder.jsx";
+import ErrorBoundary from "./components/ErrorBoundary.jsx";
 
 function App() {
-  return(
-    <BookFinder/>
-  )
- 
+  return (
+    <ErrorBoundary>
+      <BookFinder />
+    </ErrorBoundary>
+  );
 }
-  
+
 export default App;

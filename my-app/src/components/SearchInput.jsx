@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SearchInput = (props) => {
+const SearchInput = ({onChange, onClick,  }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleInputChange = (event) => {
@@ -9,12 +9,12 @@ const SearchInput = (props) => {
 
   const handleEnterKey = (event) => {
     if (event.key === "Enter") {
-      props.onChange(inputValue);
+      onChange(inputValue);
     }
   };
 
   const handleButtonClick = () => {
-    props.onClick(inputValue);
+    onClick(inputValue);
   };
 
   return (
