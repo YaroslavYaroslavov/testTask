@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Select = ({name, list,onChange}) => {
+const Select = ({ name, list, onChange }) => {
   const [active, setActive] = useState("");
   const handleActiveChange = (event) => {
     onChange(event.target.value);

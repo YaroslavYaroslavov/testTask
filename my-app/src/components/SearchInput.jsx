@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SearchInput = ({onChange, onClick,  }) => {
+const SearchInput = ({ onChange, onClick }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleInputChange = (event) => {

@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 import BookCard from "./BookCard.jsx";
 
-const Library = ({books, onClick, data}) => {
+const Library = ({ books, onClick, data }) => {
   const buttonEl = useRef(null);
 
   useEffect(() => {

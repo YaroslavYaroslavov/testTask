@@ -8,11 +8,13 @@ const BookCard = (props) => {
   return (
     <Link to={path} className="noLink">
       <div className="card">
-        <div className="cardImage">{ props.img ? (
-    <img src={props.img} alt="" />
-  ) : (
-    <div className="noImage"></div>
-  )}</div>
+        <div className="cardImage">
+          {props.img ? (
+            <img src={props.img} alt="" />
+          ) : (
+            <div className="noImage"></div>
+          )}
+        </div>
         <div className="textInfo">
           <p className="category ">{category}</p>
           <p className="bookName ">{title}</p>

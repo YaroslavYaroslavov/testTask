@@ -6,16 +6,18 @@ import Select from "./Select.jsx";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-const sortOptions = ["relevance", "newest"]
-const categoriesOptions = [ "all",
-              "art",
-              "biography",
-              "computers",
-              "history",
-              "medical",
-              "poetry",]
+const sortOptions = ["relevance", "newest"];
+const categoriesOptions = [
+  "all",
+  "art",
+  "biography",
+  "computers",
+  "history",
+  "medical",
+  "poetry",
+];
 
-const SearchZone = ({onResponse,onInputChange, offset,}) => {
+const SearchZone = ({ onResponse, onInputChange, offset }) => {
   const [activeCategories, setActiveCategories] = useState("all");
   const [activeSort, setActiveSort] = useState("relevance");
   const [inputValue, setInputValue] = useState("");
@@ -57,7 +59,7 @@ const SearchZone = ({onResponse,onInputChange, offset,}) => {
         setOldOffset(offset);
       }
     }
-  }, [inputValue, activeSort, activeCategories, offset]); // исправлю на выходных 
+  }, [inputValue, activeSort, activeCategories, offset]); // исправлю на выходных
 
   return (
     <Link to="/testTask" className="noLink">
