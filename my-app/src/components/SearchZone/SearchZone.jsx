@@ -11,12 +11,12 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 const sortOptions = ["relevance", "newest"];
 const categoriesOptions = [
   "all",
-  "art",
-  "biography",
-  "computers",
-  "history",
-  "medical",
-  "poetry",
+  "Art",
+  "Biography",
+  "Computers",
+  "History",
+  "Medical",
+  "Poetry",
 ];
 
 const SearchZone = ({ onResponse, onInputChange, offset }) => {
@@ -36,11 +36,12 @@ const SearchZone = ({ onResponse, onInputChange, offset }) => {
   };
   async function logData() {
     const categories =
-      activeCategories !== "all" ? `+object:${activeCategories}` : "";
+      activeCategories !== "all" ? `+subject:${activeCategories}` : "";
     const response = await fetch(
       `https://www.googleapis.com/books/v1/volumes?q=intitle:${inputValue}${categories}&startIndex=${offset}&maxResults=30&orderBy=${activeSort}&key=` +
         API_KEY
     );
+
     const jsonData = await response.json();
 
     onResponse(jsonData);
