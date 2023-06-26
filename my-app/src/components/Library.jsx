@@ -4,7 +4,7 @@ import BookCard from "./BookCard.jsx";
 
 const Library = ({ books, onClick, data }) => {
   const buttonEl = useRef(null);
-
+  console.log(books, data);
   useEffect(() => {
     if (buttonEl.current) {
       buttonEl.current.textContent = "Load more";
@@ -20,7 +20,7 @@ const Library = ({ books, onClick, data }) => {
     buttonEl.current.setAttribute("disabled", true);
   };
 
-  if (Object.entries(data).length === 0) {
+  if (books.length === 0 && data.totalItems === undefined) {
     return <h1 className="noBooks">Lets find some good books!</h1>;
   }
   if (data.totalItems === 0) {

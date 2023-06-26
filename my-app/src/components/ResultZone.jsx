@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import BookFullCard from "./BookFullCard.jsx";
@@ -6,25 +6,7 @@ import Library from "./Library.jsx";
 
 export const Context = createContext("NO PROVIDER");
 
-const ResultZone = ({ data, newSearch, onClick }) => {
-  const [books, setBooks] = useState([]);
-
-  useEffect(() => {
-    if (data.items === undefined) return;
-    const booksArr = newSearch ? [...data.items] : [...books, ...data.items];
-
-    const uniqueBooks = [];
-    const ids = new Set();
-
-    booksArr.forEach((book) => {
-      if (!ids.has(book.id)) {
-        ids.add(book.id);
-        uniqueBooks.push(book);
-      }
-    });
-    setBooks(uniqueBooks);
-  }, [data]);
-
+const ResultZone = ({ data, onClick, books }) => {
   return (
     <div className="resultZone">
       <Routes>

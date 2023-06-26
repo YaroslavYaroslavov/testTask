@@ -59,13 +59,13 @@ const SearchZone = ({ onResponse, onInputChange, offset }) => {
         setOldOffset(offset);
       }
     }
-  }, [inputValue, activeSort, activeCategories, offset]); // исправлю на выходных
+  }, [inputValue, activeSort, activeCategories, offset]);
 
   return (
     <Link to="/testTask" className="noLink">
       <div className="searchZone">
         <h1>Search for books</h1>
-        <SearchInput onChange={handleInputChange} onClick={handleInputChange} />
+        <SearchInput onClick={handleInputChange} />
         <div className="params">
           <Select
             onChange={handleActiveCategoriesChange}
