@@ -1,8 +1,10 @@
+import "../BookFinder/styled.css";
+
 import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 
-import ResultZone from "./ResultZone.jsx";
-import SearchZone from "./SearchZone.jsx";
+import ResultZone from "../ResultZone/ResultZone.jsx";
+import SearchZone from "../SearchZone/SearchZone.jsx";
 
 function BookFinder() {
   const [data, setData] = useState({});

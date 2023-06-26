@@ -1,8 +1,9 @@
+import "../BookFullCard/styled.css";
+
 import { useCallback, useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import { Context } from "./ResultZone.jsx";
-
+import { Context } from "../ResultZone/ResultZone.jsx";
 const BookFullCard = () => {
   const books = useContext(Context);
   const params = useParams();

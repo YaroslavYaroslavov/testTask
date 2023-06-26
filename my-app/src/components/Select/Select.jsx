@@ -1,3 +1,5 @@
+import "../Select/styled.css";
+
 import { useState } from "react";
 
 const Select = ({ name, list, onChange }) => {

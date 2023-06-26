@@ -1,8 +1,10 @@
+import "../ResultZone/styled.css";
+
 import { createContext } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import BookFullCard from "./BookFullCard.jsx";
-import Library from "./Library.jsx";
+import BookFullCard from "../BookFullCard/BookFullCard.jsx";
+import Library from "../Library/Library.jsx";
 
 export const Context = createContext("NO PROVIDER");
 

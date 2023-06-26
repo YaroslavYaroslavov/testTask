@@ -1,0 +1,20 @@
+.searchIco {
+  width: 52px;
+  height: 52px;
+  background-color: #fff;
+  background-image: url(/src/assets/magnifier-tool-2_icon-icons.com_56920.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 30px;
+  border: none;
+  transition: 200ms;
+}
+
+.searchIco:hover {
+  filter: invert(100%);
+}
+
+.searchInput {
+  display: flex;
+  justify-content: center;
+}

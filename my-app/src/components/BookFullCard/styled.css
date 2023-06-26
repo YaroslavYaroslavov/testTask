@@ -1,0 +1,110 @@
+.bookDetail-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  margin: auto;
+  gap: 55px;
+  height: 100%;
+  /* min-height: 39vh; */
+  position: relative;
+}
+
+.image-block {
+  width: 50%;
+  height: 100vh;
+  max-height: 1000vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f2f3;
+  /* flex-grow: 30px; */
+  /* border: 1px solid grey; */
+}
+
+.image-block img {
+  transform: scale(3);
+  box-shadow: inset;
+  box-shadow: 8px 8px 7px 0px rgba(0, 0, 0, 0.2);
+  /* height: 20%; */
+}
+
+.detail-block {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: space-between;
+}
+
+.bookDescrption {
+  width: 90%;
+  text-align: start;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: -1px;
+  border: 1px solid grey;
+  margin-top: 20px;
+  padding: 20px;
+  padding-right: 1vw;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, serif;
+}
+
+.bookCategories {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, serif;
+  font-size: 20px;
+  font-weight: lighter;
+  text-align: start;
+  margin-bottom: 50px;
+}
+
+.bookTitle {
+  text-align: start;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, serif;
+  font-weight: bolder;
+  font-size: 27px;
+  margin-bottom: 20px;
+  /* height: 20px; */
+  /* width: 20em; */
+  /* text-overflow: ellipsis; */
+}
+
+.bookAuthors {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, serif;
+  text-align: start;
+  text-decoration: underline;
+  font-weight: lighter;
+  color: #474747;
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: 1400px) {
+  .image-block img {
+    transform: scale(2.5);
+    box-shadow: inset;
+    box-shadow: 8px 8px 7px 0px rgba(0, 0, 0, 0.2);
+    /* height: 20%; */
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .image-block img {
+    transform: scale(2);
+    box-shadow: inset;
+    box-shadow: 8px 8px 7px 0px rgba(0, 0, 0, 0.2);
+    /* height: 20%; */
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .image-block img {
+    transform: scale(1.5);
+    box-shadow: inset;
+    box-shadow: 8px 8px 7px 0px rgba(0, 0, 0, 0.2);
+    /* height: 20%; */
+  }
+}

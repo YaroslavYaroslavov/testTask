@@ -1,10 +1,11 @@
+import "../Library/styled.css";
+
 import { useEffect, useRef } from "react";
 
-import BookCard from "./BookCard.jsx";
+import BookCard from "../BookCard/BookCard.jsx";
 
 const Library = ({ books, onClick, data }) => {
   const buttonEl = useRef(null);
-  console.log(books, data);
   useEffect(() => {
     if (buttonEl.current) {
       buttonEl.current.textContent = "Load more";

@@ -1,0 +1,67 @@
+.countResults {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.books {
+  margin: auto;
+  display: flex;
+  width: 70vw;
+  align-items: center;
+  justify-content: center;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+}
+
+.loadmore {
+  /* padding-left: 25px; */
+  /* padding-right: 25px; */
+  height: 70px;
+  color: white;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+  background-color: rgb(42, 42, 42);
+  margin-top: 20px;
+  font-size: 25px;
+  border: none;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, serif;
+  transition: 0.5s ease-out;
+  cursor: pointer;
+}
+
+.loadmore:hover {
+  border: 2px solid black;
+  color: black;
+  background-color: #c5c5c5;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  overflow: hidden;
+}
+
+.loading::after {
+  content: "";
+  width: 1.5em;
+  height: 1.5em;
+  border: 0.2em solid #ccc;
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: spin 1s infinite linear;
+}
+
+.noBooks {
+  margin-top: 30vh;
+}

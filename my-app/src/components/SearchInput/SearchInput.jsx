@@ -1,3 +1,5 @@
+import "../SearchInput/styled.css";
+
 import { useState } from "react";
 
 const SearchInput = ({ onClick }) => {

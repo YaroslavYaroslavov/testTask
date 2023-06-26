@@ -1,0 +1,79 @@
+.card {
+  width: 200px;
+  height: 280px;
+  background-color: #f4f3f1;
+  padding-top: 20px;
+  margin: 10px;
+  padding-bottom: 20px;
+}
+
+.category {
+  height: 30px;
+  font-size: 13px;
+  margin: 0;
+  text-decoration: underline;
+  /* text-decoration-color: transparent; */
+  color: #858585;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, serif;
+}
+
+.author {
+  height: 30px;
+  font-size: 13px;
+  margin: 0;
+  text-decoration: underline;
+  color: #858585;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, serif;
+}
+
+.bookName {
+  letter-spacing: -1px;
+  /* height: 10ch; */
+  font-weight: bold;
+  margin: 0;
+  font-size: 15px;
+  width: 128px;
+  /* max-width: 20ch; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.textInfo {
+  width: 128px;
+  height: 90px;
+  text-align: left;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.noImage {
+  background-color: rgb(158, 158, 158);
+  width: 128px;
+  height: 211px;
+  /* background-color: ; */
+  background-image: url(/src/assets/icons8-нет-изображения-50.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.cardImage {
+  background-color: rgb(41, 41, 41);
+  margin: auto;
+  width: 128px;
+  height: 192px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2); */
+  /* -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2); */
+  box-shadow: inset;
+  box-shadow: 8px 8px 7px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}

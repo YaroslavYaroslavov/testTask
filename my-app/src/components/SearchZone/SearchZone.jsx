@@ -1,8 +1,10 @@
+import "../SearchZone/styled.css";
+
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import SearchInput from "./SearchInput.jsx";
-import Select from "./Select.jsx";
+import SearchInput from "../SearchInput/SearchInput.jsx";
+import Select from "../Select/Select.jsx";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
