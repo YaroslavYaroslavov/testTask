@@ -6,12 +6,60 @@ import { BrowserRouter } from "react-router-dom";
 import ResultZone from "../ResultZone/ResultZone.jsx";
 import SearchZone from "../SearchZone/SearchZone.jsx";
 
+const API_KEY = process.env.REACT_APP_API_KEY;
+let newSearch = true;
+
 function BookFinder() {
   const [data, setData] = useState({});
-  const [offset, setOffset] = useState(0);
-  const [newSearch, setNewSearch] = useState(true);
   const [books, setBooks] = useState([]);
-  const [isLoading, setIsLoading] = useState(!false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [options, setOptions] = useState({
+    activeCategories: "all",
+    activeSort: "relevance",
+    inputValue: "",
+    offset: 0,
+  });
+
+  async function logData(obj) {
+    if (obj.inputValue) {
+      handleIsLoading(true);
+      const categories =
+        obj.activeCategories !== "all"
+          ? `+subject:${obj.activeCategories}`
+          : "";
+      const response = await fetch(
+        `https://www.googleapis.com/books/v1/volumes?q=intitle:${obj.inputValue}${categories}&startIndex=${obj.offset}&maxResults=30&orderBy=${obj.activeSort}&key=` +
+          API_KEY
+      );
+
+      const jsonData = await response.json();
+      handleIsLoading(false);
+
+      handleDataChange(jsonData);
+    }
+  }
+
+  const handleInputChange = (text) => {
+    const newOptions = options;
+    newOptions.inputValue = text;
+    setOptions(newOptions);
+    // setInputValue(text);
+    handleOptionsChange();
+  };
+  const handleActiveCategoriesChange = (active) => {
+    // setActiveCategories(active);
+    const newOptions = options;
+    newOptions.activeCategories = active;
+    setOptions(newOptions);
+    handleOptionsChange();
+  };
+  const handleActiveSortChange = (active) => {
+    const newOptions = options;
+    newOptions.activeSort = active;
+    setOptions(newOptions);
+    handleOptionsChange();
+  };
 
   const filterOnlyUniq = (data) => {
     if (data?.items === undefined) return;
@@ -28,15 +76,20 @@ function BookFinder() {
   };
 
   const handleButtonClick = () => {
-    setNewSearch(false);
-    setOffset((prev) => prev + 30);
-    filterOnlyUniq();
+    newSearch = false;
+    console.log(newSearch);
+    const newOptions = options;
+    newOptions.offset = options.offset + 30;
+    setOptions(newOptions);
+    logData(options);
   };
 
   const handleOptionsChange = () => {
-    setOffset(0);
-    setNewSearch(true);
-    filterOnlyUniq();
+    const newOptions = options;
+    newOptions.offset = 0;
+    setOptions(newOptions);
+    newSearch = true;
+    logData(options);
   };
   const handleIsLoading = (isLoading) => {
     setIsLoading(isLoading);
@@ -47,9 +100,12 @@ function BookFinder() {
         <SearchZone
           className="searchZone"
           onResponse={handleDataChange}
-          offset={offset}
           onInputChange={handleOptionsChange}
           handleIsLoading={handleIsLoading}
+          handleInputChange={handleInputChange}
+          handleActiveSortChange={handleActiveSortChange}
+          handleActiveCategoriesChange={handleActiveCategoriesChange}
+          logData={logData}
         />
         <ResultZone
           data={data}

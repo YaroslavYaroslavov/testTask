@@ -8,8 +8,9 @@ import Library from "../Library/Library.jsx";
 
 export const Context = createContext("NO PROVIDER");
 
-const ResultZone = ({ data, onClick, books, isLoading }) => {
-  if (isLoading && books.length === 0) {
+const ResultZone = ({ data, onClick, books, isLoading, newSearch }) => {
+  console.log(newSearch);
+  if (isLoading && newSearch) {
     return (
       <div className="skeleton-wrapper">
         <div className="skeleton-totalItems"></div>
