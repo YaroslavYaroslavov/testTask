@@ -32,6 +32,6 @@ module.exports = {
   rules: {
     "react/prop-types": ["off"],
     "simple-import-sort/sort": "error",
-    "react-hooks/exhaustive-deps": "off",
+    // "react-hooks/exhaustive-deps": "off",
   },
 };

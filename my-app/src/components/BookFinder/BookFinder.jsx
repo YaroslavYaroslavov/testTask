@@ -11,6 +11,7 @@ function BookFinder() {
   const [offset, setOffset] = useState(0);
   const [newSearch, setNewSearch] = useState(true);
   const [books, setBooks] = useState([]);
+  const [isLoading, setIsLoading] = useState(!false);
 
   const filterOnlyUniq = (data) => {
     if (data?.items === undefined) return;
@@ -37,7 +38,9 @@ function BookFinder() {
     setNewSearch(true);
     filterOnlyUniq();
   };
-
+  const handleIsLoading = (isLoading) => {
+    setIsLoading(isLoading);
+  };
   return (
     <div className="App">
       <BrowserRouter>
@@ -46,12 +49,14 @@ function BookFinder() {
           onResponse={handleDataChange}
           offset={offset}
           onInputChange={handleOptionsChange}
+          handleIsLoading={handleIsLoading}
         />
         <ResultZone
           data={data}
           books={books}
           onClick={handleButtonClick}
           newSearch={newSearch}
+          isLoading={isLoading}
         />
       </BrowserRouter>
     </div>

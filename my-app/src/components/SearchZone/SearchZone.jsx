@@ -19,7 +19,7 @@ const categoriesOptions = [
   "Poetry",
 ];
 
-const SearchZone = ({ onResponse, onInputChange, offset }) => {
+const SearchZone = ({ onResponse, onInputChange, offset, handleIsLoading }) => {
   const [activeCategories, setActiveCategories] = useState("all");
   const [activeSort, setActiveSort] = useState("relevance");
   const [inputValue, setInputValue] = useState("");
@@ -35,6 +35,7 @@ const SearchZone = ({ onResponse, onInputChange, offset }) => {
     setActiveSort(active);
   };
   async function logData() {
+    handleIsLoading(true);
     const categories =
       activeCategories !== "all" ? `+subject:${activeCategories}` : "";
     const response = await fetch(
@@ -43,6 +44,7 @@ const SearchZone = ({ onResponse, onInputChange, offset }) => {
     );
 
     const jsonData = await response.json();
+    handleIsLoading(false);
 
     onResponse(jsonData);
   }
