@@ -33,7 +33,11 @@ const BookFullCard = () => {
   return (
     <div className="bookDetail-wrapper">
       <div className="image-block">
-        <img src={book?.imageLinks?.thumbnail || ""} alt="" />
+        {book?.imageLinks?.thumbnail ? (
+          <img src={book?.imageLinks?.thumbnail || ""} alt="" />
+        ) : (
+          <div>No image</div>
+        )}
       </div>
       <div className="detail-block">
         <div className="bookCategories">{book?.categories?.join(", ")}</div>

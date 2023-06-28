@@ -6,7 +6,7 @@ const SearchInput = ({ onClick }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleInputChange = (event) => {
-    setInputValue(event.target.value.trim());
+    setInputValue(event.target.value);
   };
 
   const handleEnterKey = (event) => {

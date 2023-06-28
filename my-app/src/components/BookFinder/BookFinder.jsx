@@ -12,7 +12,7 @@ let newSearch = true;
 function BookFinder() {
   const [data, setData] = useState({});
   const [books, setBooks] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(!false);
 
   const [options, setOptions] = useState({
     activeCategories: "all",
@@ -22,15 +22,16 @@ function BookFinder() {
   });
 
   async function logData(obj) {
-    if (obj.inputValue) {
+    if (obj.inputValue.trim()) {
       handleIsLoading(true);
       const categories =
         obj.activeCategories !== "all"
           ? `+subject:${obj.activeCategories}`
           : "";
       const response = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=intitle:${obj.inputValue}${categories}&startIndex=${obj.offset}&maxResults=30&orderBy=${obj.activeSort}&key=` +
-          API_KEY
+        `https://www.googleapis.com/books/v1/volumes?q=intitle:${obj.inputValue.trim()}${categories}&startIndex=${
+          obj.offset
+        }&maxResults=30&orderBy=${obj.activeSort}&key=` + API_KEY
       );
 
       const jsonData = await response.json();

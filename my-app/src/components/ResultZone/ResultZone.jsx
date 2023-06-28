@@ -20,8 +20,6 @@ const ResultZone = ({ data, onClick, books, isLoading, newSearch }) => {
           <div className="skeleton-book"></div>
           <div className="skeleton-book"></div>
           <div className="skeleton-book"></div>
-          <div className="skeleton-book"></div>
-          <div className="skeleton-book"></div>
         </div>
       </div>
     );

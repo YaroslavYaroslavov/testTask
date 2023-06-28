@@ -5,6 +5,7 @@
   padding-top: 20px;
   margin: 10px;
   padding-bottom: 20px;
+  transition: 0.2s ease-in-out;
 }
 
 .category {
@@ -16,6 +17,9 @@
   color: #858585;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .author {
@@ -26,6 +30,9 @@
   color: #858585;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .bookName {
@@ -74,4 +81,9 @@
   box-shadow: inset;
   box-shadow: 8px 8px 7px 0px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
+}
+
+.card:hover {
+  cursor: pointer;
+  background-color: #292929;
 }
