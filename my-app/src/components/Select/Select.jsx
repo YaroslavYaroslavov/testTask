@@ -11,7 +11,13 @@ const Select = ({ name, list, onChange }) => {
   return (
     <div className="selectWrapper">
       <div className="selectLabel">{name}</div>
-      <select onChange={handleActiveChange} name="" id="" value={active}>
+      <select
+        className="selectWrap"
+        onChange={handleActiveChange}
+        name=""
+        id=""
+        value={active}
+      >
         {list.map((el, index) => {
           return (
             <option key={index} value={el}>

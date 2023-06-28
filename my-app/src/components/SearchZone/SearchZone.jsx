@@ -22,7 +22,7 @@ const SearchZone = ({
   handleActiveCategoriesChange,
 }) => {
   return (
-    <Link to="/testTask" className="noLink">
+    <Link to="/" className="noLink">
       <div className="searchZone">
         <h1>Search for books</h1>
         <SearchInput onClick={handleInputChange} />

@@ -41,8 +41,8 @@ const BookFullCard = () => {
         <div className="bookAuthors">{book?.authors?.join(", ")}</div>
         <div className="bookDescrption">{desc}</div>
       </div>
-      <Link to="/testTask">
-        <button>Go Back</button>
+      <Link to="/">
+        <button className="goBack"></button>
       </Link>
     </div>
   );

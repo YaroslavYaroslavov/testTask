@@ -30,7 +30,7 @@ const ResultZone = ({ data, onClick, books, isLoading, newSearch }) => {
       <div className="resultZone">
         <Routes>
           <Route
-            path="/testTask"
+            path="/"
             element={<Library data={data} books={books} onClick={onClick} />}
           />
           <Route

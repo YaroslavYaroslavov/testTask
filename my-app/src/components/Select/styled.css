@@ -1,6 +1,17 @@
 .selectWrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.selectWrap {
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, serif;
+  font-size: large;
 }
 
 @media screen and (max-width: 400px) {
