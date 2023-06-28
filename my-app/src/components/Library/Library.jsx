@@ -41,7 +41,7 @@ const Library = ({ books, onClick, data }) => {
           {books.map((el) => (
             <BookCard
               key={el.id}
-              href={`testTask/bookfullcard/${el.id}`}
+              id={el.id}
               img={el?.volumeInfo?.imageLinks?.thumbnail}
               category={el?.volumeInfo?.categories}
               title={el?.volumeInfo?.title}

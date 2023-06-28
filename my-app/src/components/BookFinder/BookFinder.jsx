@@ -99,13 +99,9 @@ function BookFinder() {
       <BrowserRouter>
         <SearchZone
           className="searchZone"
-          onResponse={handleDataChange}
-          onInputChange={handleOptionsChange}
-          handleIsLoading={handleIsLoading}
           handleInputChange={handleInputChange}
           handleActiveSortChange={handleActiveSortChange}
           handleActiveCategoriesChange={handleActiveCategoriesChange}
-          logData={logData}
         />
         <ResultZone
           data={data}
