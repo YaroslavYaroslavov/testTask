@@ -12,7 +12,7 @@ let newSearch = true;
 function BookFinder() {
   const [data, setData] = useState({});
   const [books, setBooks] = useState([]);
-  const [isLoading, setIsLoading] = useState(!false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [options, setOptions] = useState({
     activeCategories: "all",
